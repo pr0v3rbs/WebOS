@@ -1,0 +1,8 @@
+config DRV_CIPHER
+
+tristate "CIPHER"
+default n
+
+---help---
+Enable compilation option for driver CIPHER
+

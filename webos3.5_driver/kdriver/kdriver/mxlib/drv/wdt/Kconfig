@@ -1,0 +1,8 @@
+config DRV_WDT
+
+tristate "WDT"
+default n
+
+---help---
+Enable compilation option for driver WDT
+

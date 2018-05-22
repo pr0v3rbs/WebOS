@@ -1,0 +1,68 @@
+menu "webOS"
+
+config WEBOS
+	bool "webOS Drivers"
+	default N
+	---help---
+	  Enable support for various drivers needed on the webOS platform
+
+if WEBOS
+
+config LOW_MEM_NOTIFY
+	bool "Create device that lets processes detect low-memory conditions"
+	default n
+	help
+	  A process can poll the /dev/low_mem device to be notified of
+	  low-memory conditions.  The process can then attempt to free memory
+	  before a OOM condition develops and the OOM killer takes over.  This
+	  is meant to be used in systems with no or very little swap space.  In
+	  the presence of large swap space, the system is likely to become
+	  unusable before the OOM killer is triggered.
+
+config KMSG_RAW
+	bool "Kmsg raw dumper for STR"
+	depends on DEBUG_LL
+	default y
+	help
+	  raw kernel message dumper to call on oopses and panics
+	  This feature supports dumping the kernel logs through raw uart writer
+	  provided by ARM kernel. New kmsg dumpper named raw_dumper is added and
+	  kmsg_dump() calls this dumper when oopses or panics happen.
+	  This dumper is intended to be used for getting some logs on STR suspend.
+
+config SYSRQ_LOG_PRINT
+	bool "Print kernel log when sysrq(y)"
+	default y
+	help
+	  Show kernel log when sysrq(y) is pressed. This feature is useful for
+	  debugging when shell is down and dmsg or /proc/kmsg are not available.
+
+config USER_INITCALL
+	bool "User Initcall support"
+	default y
+	help
+	  Support for user level initcall. This special initcall is invoked by
+	  writing group name to /proc/usercalls in user space. The group name
+	  is sepcified by user_initcall_grp macro in specific driver.
+	  If unsure, say N.
+
+config USER_INITCALL_USB
+	bool "User Initcall usb support"
+	depends on USER_INITCALL
+	default y
+	help
+	  Apply user initcall to usb device and usb storage driver.
+	  If unsure, say N.
+
+config FAULT_NOTIFIER
+	bool "Fault Notifier support"
+	default y
+	help
+	  Support for Fault Notifier that communicate with Fault Manager in webOS.
+	  If unsure, say N.
+
+source "drivers/staging/webos/logger/Kconfig"
+
+endif # if WEBOS
+
+endmenu

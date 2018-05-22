@@ -1,0 +1,67 @@
+menuconfig LOGGER
+	bool "Logger"
+	default y
+	depends on LGEMMC_PARTITION
+	---help---
+	  Chose this option to enable the logger which store panic and
+	  debug message to a flash partition where it can be read back at
+	  some later point when system is crashed.
+	  If unsure, say N.
+
+config MMCOOPS
+	bool "MMC panic/oops logger"
+	default y
+	select LL_MMC
+	depends on LOGGER
+	---help---
+	  Chose this option to enable MMC panic/oops logger.
+	  If unsure, say N.
+
+config LL_MMC
+	bool "Support for low level MMC driver"
+	depends on LOGGER
+	---help---
+	  Add support for the low level MMC driver which is only used
+	  during kernel crash. Once this driver has worked there's no
+	  way system is recoverd.
+	  If unsure, say N.
+
+config LL_MMC_LG1K
+	bool "Support for low level MMC driver on lg1k for Logger"
+	default y
+	depends on LOGGER && LL_MMC && MMC_SDHCI_LG1K
+	---help---
+	  Add support for the low level MMC driver on lg1k ARCH.
+	  If unsure, say N.
+
+config LL_MMC_MSTAR
+	bool "Support for low level MMC driver on mstar for Logger"
+	default y
+	depends on LOGGER && LL_MMC && MSTAR_MMC
+	---help---
+	  Add support for the low level MMC driver on mstar ARCH.
+	  If unsure, say N.
+
+config WDT_LOG
+	bool "Support for saving log files on WDT by MICOM"
+	default y
+	depends on LOGGER && LL_MMC
+	---help---
+      Log files on ramfs are copied to specified MMC using LL_MMC.
+	  If unsure, say N.
+
+config WDT_DETECT_LG1K
+	bool "Support for the detection of WDT by MICOM on lg1k"
+	default y
+	depends on LOGGER && WDT_LOG && ARCH_LG1K
+	---help---
+	  Add support for the detection of WDT by MICOM on lg1k ARCH.
+	  If unsure, say N.
+
+config WDT_DETECT_MSTAR
+	bool "Support for the detection of WDT by MICOM on mstar"
+	default y
+	depends on LOGGER && WDT_LOG && MSTAR_ARM
+	---help---
+	  Add support for the detection of WDT by MICOM on mstar ARCH.
+	  If unsure, say N.

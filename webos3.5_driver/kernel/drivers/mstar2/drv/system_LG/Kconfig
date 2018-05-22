@@ -1,0 +1,5 @@
+config SYSTEM_LG
+bool "Supply system customization fo LG"
+default y
+help
+    System driver function for LG customization

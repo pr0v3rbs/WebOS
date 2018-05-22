@@ -1,0 +1,5 @@
+config MSTAR_DLMALLOC
+	tristate "DLMALLOC"
+	default n
+	help
+	  Enable compilation option for driver dlmalloc

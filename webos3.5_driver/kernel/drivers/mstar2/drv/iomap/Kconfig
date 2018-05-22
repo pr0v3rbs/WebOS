@@ -1,0 +1,6 @@
+config MSTAR_IOMAP
+
+tristate "IOMAP"
+
+help
+    MStar IO remap driver function

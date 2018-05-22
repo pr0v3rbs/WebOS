@@ -1,0 +1,6 @@
+config MSTAR_VIF
+
+tristate "VIF"
+
+help
+    Titania13 VIF driver function

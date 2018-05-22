@@ -1,0 +1,82 @@
+#
+# MStar arm-dependent configuration
+#
+config MSTAR_CHIP
+	bool
+	default y
+	select MSTAR_PORTING_KERNEL_4_4_3
+	select MSTAR_PORTING_PLAT
+	select MSTAR_8250_DRIVER
+	select HAVE_SCHED_CLOCK
+
+config MSTAR_PORTING_KERNEL_4_4_3
+	bool
+	help
+	  necessary changes made in MStar-owned files
+
+config MSTAR_PORTING_PLAT
+	bool
+	help
+	  necessary changes made in kernel source code
+
+config MSTAR_8250_DRIVER
+	bool
+	help
+	  temp workaround for 8250 driver
+
+config MSTAR_HIBERNATE_FUNCTIONS
+	bool
+	default y if LG_SNAPSHOT_BOOT
+	help
+	  redefine some functions in hibernate.c
+
+config HAVE_SCHED_CLOCK
+	bool
+	help
+	  for MStar arm-boards
+
+config VMALLOC_END_RESERVE_FOR_UTOPIA2K_MODULE
+	hex
+	prompt "Reserved for utopia2k kernel module memory"
+	default 0x0A000000 if MSTAR_MONACO
+        default 0x20000000 if MSTAR_MUNICH
+	default 0x20000000 if MSTAR_MUSTANG
+	default 0x0
+
+config HOLES_IN_ZONE
+	def_bool ARCH_SPARSEMEM_ENABLE
+
+config BUILD_ARM_APPENDED_DTB_IMAGE
+	bool "Build a concatenated zImage/dtb by default"
+	depends on OF
+	help
+	  Enabling this option will cause a concatenated zImage and list of
+	  DTBs to be built by default (instead of a standalone zImage.)
+	  The image will built in arch/arm/boot/zImage-dtb
+
+config BUILD_ARM_APPENDED_DTB_IMAGE_NAMES
+	string "Default dtb names"
+	depends on BUILD_ARM_APPENDED_DTB_IMAGE
+	help
+	  Space separated list of names of dtbs to append when
+	  building a concatenated zImage-dtb
+
+config MEMORY_START_ADDRESS
+	hex "Physical address of the memory starting"
+	default 0x20200000 if MSTAR_MUNICH
+	default 0x20200000 if MSTAR_MUSTANG
+
+config CACHE_PL310
+	bool
+	depends on CACHE_L2X0
+	default y if CPU_V7 && !(CPU_V6 || CPU_V6K)
+	help
+	  This option enables optimisations for the PL310 cache
+	  controller.
+
+config VMSPLIT_2G_MSTAR_PATCH
+	bool
+	default n
+
+source "arch/arm/Kconfig.mstarpatch"
+

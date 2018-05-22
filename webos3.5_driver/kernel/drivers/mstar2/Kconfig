@@ -1,0 +1,82 @@
+menu "MStar Driver Configuration"
+#
+#Android recovery Flag
+#
+
+config WRITE_TO_ANDROID_MISC
+    bool "Write Andorid recovery command to partition"
+    default n
+
+choice
+  depends on WRITE_TO_ANDROID_MISC
+	prompt "storage type"
+	default EMMC
+
+config WRITE_TO_ANDROID_MISC_EMMC
+    bool "EMMC"
+
+config WRITE_TO_ANDROID_MISC_NAND
+    bool "NAND"
+endchoice
+
+config LX3_SUPPORT
+    bool "LX3 support"
+    default n
+
+#
+# USB MIU1 PATCH
+#
+config MS_USB_MIU1_PATCH
+    bool
+    default n
+
+#
+# USB NAND PATCH
+#
+config MS_NAND_MIU1_PATCH
+    bool
+    default n
+
+config MSTAR_COOCAA_AUTH
+    bool "Link with COOCAA Authorization"
+    default n
+
+if MSTAR_DRIVER
+#
+# MStar Device Drivers
+#
+comment "MStar Device Drivers"
+source "drivers/mstar2/drv/alsa_audio_driver/Kconfig"
+source "drivers/mstar2/drv/cma_pool/Kconfig"
+source "drivers/mstar2/drv/demod/Kconfig"
+source "drivers/mstar2/drv/dlmalloc/Kconfig"
+source "drivers/mstar2/drv/emac/Kconfig"
+source "drivers/mstar2/drv/fusion/Kconfig"
+source "drivers/mstar2/drv/gpio/Kconfig"
+source "drivers/mstar2/drv/iic/Kconfig"
+source "drivers/mstar2/drv/iomap/Kconfig"
+source "drivers/mstar2/drv/ir/Kconfig"
+source "drivers/mstar2/drv/mbx/Kconfig"
+source "drivers/mstar2/drv/miu/Kconfig"
+source "drivers/mstar2/drv/mmc/Kconfig"
+source "drivers/mstar2/drv/mpool/Kconfig"
+source "drivers/mstar2/drv/mstar_fb/Kconfig"
+source "drivers/mstar2/drv/nand/Kconfig"
+source "drivers/mstar2/drv/sar/Kconfig"
+source "drivers/mstar2/drv/sc/Kconfig"
+source "drivers/mstar2/drv/semutex/Kconfig"
+source "drivers/mstar2/drv/system_LG/Kconfig"
+source "drivers/mstar2/drv/system/Kconfig"
+source "drivers/mstar2/drv/vif/Kconfig"
+endif #MSTAR_DRIVER
+
+config HAS_LD
+	bool "Enable Local Dimming"
+	default n
+
+config MSTAR_UTOPIA2K
+	tristate "Utopia2K build option(build-in/ko)"
+	default n
+	help
+	  mstar utopia2k build-in or utpa2k.ko
+endmenu

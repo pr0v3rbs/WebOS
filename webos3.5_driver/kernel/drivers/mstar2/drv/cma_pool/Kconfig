@@ -1,0 +1,6 @@
+config MSTAR_CMAPOOL
+bool  "CMA POOL"
+depends on CMA
+
+help
+    MStar CMA POOL driver function

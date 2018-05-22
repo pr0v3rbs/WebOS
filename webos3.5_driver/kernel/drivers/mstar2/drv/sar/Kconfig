@@ -1,0 +1,7 @@
+config MSTAR_SAR
+
+tristate "SAR"
+
+help
+    MStar SAR driver function
+

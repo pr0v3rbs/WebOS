@@ -1,0 +1,1 @@
+cmd_arch/arm/common/built-in.o :=  arm-lg115x-linux-gnueabi-ld -EL    -r -o arch/arm/common/built-in.o arch/arm/common/mstar_irq.o arch/arm/common/firmware.o arch/arm/common/icst.o ; scripts/mod/modpost arch/arm/common/built-in.o

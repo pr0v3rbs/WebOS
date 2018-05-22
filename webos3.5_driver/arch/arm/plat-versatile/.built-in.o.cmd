@@ -1,0 +1,1 @@
+cmd_arch/arm/plat-versatile/built-in.o :=  arm-lg115x-linux-gnueabi-ld -EL    -r -o arch/arm/plat-versatile/built-in.o arch/arm/plat-versatile/headsmp.o arch/arm/plat-versatile/platsmp.o ; scripts/mod/modpost arch/arm/plat-versatile/built-in.o

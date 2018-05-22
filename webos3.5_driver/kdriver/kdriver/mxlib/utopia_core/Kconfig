@@ -1,0 +1,19 @@
+#
+# Utopia framework configuration
+#
+
+menu "Utoipa framework"
+
+config UTOPIA_TEE
+	bool "Flag of CONFIG_UTOPIA_TEE"
+	default n
+
+config UTOPIA_FRAMEWORK
+	bool "Support for utopia framework"
+	default n
+if UTOPIA_FRAMEWORK	
+    config UTOPIA_FRAMEWORK_KERNEL_DRIVER
+    bool "Support for utopia2k framework"
+	default n
+endif
+endmenu

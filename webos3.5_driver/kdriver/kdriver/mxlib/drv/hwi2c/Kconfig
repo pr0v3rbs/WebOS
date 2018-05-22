@@ -1,0 +1,8 @@
+config DRV_HWI2C
+
+tristate "HWI2C"
+default n
+
+---help---
+Enable compilation option for driver HWI2C
+

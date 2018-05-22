@@ -1,0 +1,24 @@
+#
+# LG kernel expansion
+#
+menu "LG kernel expansion"
+
+config LG_KERNEL_EXPAND
+	tristate "LG kernel expansion"
+	default y
+	help
+	  support LG kernel expansion
+
+config LG_CHANGE
+	bool "LG change"
+	depends on LG_KERNEL_EXPAND
+	help
+	  LG change request
+
+config LG_SNAPSHOT_BOOT_MSTAR_PATCH
+	bool "LG snapshot boot patch"
+	depends on LG_KERNEL_EXPAND
+	help
+	  LG snapshot boot patch for MStar chip
+
+endmenu #LG kernel expansion

@@ -1,0 +1,15 @@
+config MSTAR_MMC
+	tristate "MStar eMMC driver"
+	help
+	  MStar eMMC driver.
+
+config MSTAR_MMC_CHK_VERSION
+	tristate "MStar eMMC driver - check version"
+	depends on MSTAR_MMC
+	help
+	  MStar eMMC driver - check version.
+
+config MSTAR_MMC_tSD
+	tristate "Mstar tSD Interface support"
+	help
+	  Mstar FCIE SD/SDIO Host Controller Driver.

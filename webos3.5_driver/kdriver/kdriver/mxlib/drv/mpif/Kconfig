@@ -1,0 +1,8 @@
+config DRV_MPIF
+
+tristate "MPIF"
+default n
+
+---help---
+Enable compilation option for driver MPIF
+

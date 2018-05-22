@@ -1,0 +1,21 @@
+config DRV_DSCMB2
+
+tristate "DSCMB2"
+default n
+
+---help---
+Enable compilation option for driver DSCMB
+
+if DRV_DSCMB2
+config DSCMB2_NSK_ENABLE
+	bool "Enable dscmb2 NSK"
+	default n
+	help
+	  Select if you want to enable dscmb2 NSK. If unsure, say 'N'.
+
+config DSCMB2_MULTI2_ENABLE
+	bool "Enable dscmb2 MLUTI2"
+	default y
+	help
+	  Select if you want to enable dscmb2 MULTI2. If unsure, say 'N'.
+endif

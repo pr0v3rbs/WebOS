@@ -1,0 +1,1 @@
+cmd_arch/arm/plat-mstar/built-in.o :=  arm-lg115x-linux-gnueabi-ld -EL    -r -o arch/arm/plat-mstar/built-in.o arch/arm/plat-mstar/clock.o arch/arm/plat-mstar/sched-clock.o arch/arm/plat-mstar/headsmp.o arch/arm/plat-mstar/platsmp.o arch/arm/plat-mstar/hotplug.o arch/arm/plat-mstar/memory.o ; scripts/mod/modpost arch/arm/plat-mstar/built-in.o

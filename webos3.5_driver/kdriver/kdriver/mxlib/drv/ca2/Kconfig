@@ -1,0 +1,8 @@
+config DRV_CA2
+
+tristate "CA2"
+default n
+
+---help---
+Enable compilation option for driver CA
+

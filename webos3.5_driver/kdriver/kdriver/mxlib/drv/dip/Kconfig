@@ -1,0 +1,8 @@
+config DRV_DIP
+
+tristate "DIP"
+default n
+
+---help---
+Enable compilation option for driver DIP
+
