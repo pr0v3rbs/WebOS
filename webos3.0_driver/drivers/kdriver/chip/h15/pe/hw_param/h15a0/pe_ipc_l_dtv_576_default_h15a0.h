@@ -1,0 +1,63 @@
+/*
+	SIC LABORATORY, LG ELECTRONICS INC., SEOUL, KOREA
+	Copyright(c) 2013 by LG Electronics Inc.
+
+	This program is free software; you can redistribute it and/or
+	modify it under the terms of the GNU General Public License
+	version 2 as published by the Free Software Foundation.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU General Public License for more details.
+*/
+
+const PE_REG_PARAM_T ipc_l_dtv_576_default_h15a0[] =
+{
+	/* nd ipc */
+	{0x4200, 0xF250ACA2},	//IPC_CTRL_00,1101 n1cc off
+	{0x4204, 0x82854284},	//IPC_CTRL_01
+	{0x4208, 0x18187004},	//IPC_CTRL_02
+	{0x420C, 0xF5505038},	//IPC_CTRL_03
+	{0x4210, 0x70004000},	//IPC_CTRL_04	
+	{0x4214, 0x08700840},	//IPC_CTRL_05
+	{0x4218, 0x00800877},	//IPC_CTRL_06	
+	{0x421C, 0xB0E002DF},	//IPC_CTRL_07	
+	{0x4220, 0xF0000000},	//IPC_CTRL_08
+	{0x4224, 0x00FF2814},	//IPC_CTRL_09
+	{0x4228, 0x25100408},	//IPC_CTRL_10, 20140728,a_th:4->8
+	{0x422C, 0x16000540},	//IPC_CTRL_11
+	{0x4230, 0xFF2A1003},	//IPC_CTRL_12
+	{0x4234, 0x00001003},	//IPC_CTRL_13
+	{0x4238, 0x0750C019},	//IPC_CTRL_14
+	{0x423C, 0x6A380404},	//IPC_CTRL_15
+	{0x4240, 0x53703804},	//IPC_CTRL_16
+	{0x4244, 0x40505CE1},	//IPC_CTRL_17
+	{0x4248, 0xFF10FF08},	//IPC_CTRL_18
+	{0x424C, 0x007C2030},	//IPC_CTRL_19
+	{0x4280, 0x180010FF},	//IPC_CTRL_34
+	{0x4284, 0x00810002},	//IPC_CTRL_35, 20140829, fmd manual_mode_en on
+	{0x4288, 0xFF2A1003},	//IPC_CTRL_36
+	{0x428C, 0x0750C061},	//IPC_CTRL_37
+	{0x4290, 0x6A380404},	//IPC_CTRL_38
+	{0x4294, 0x53703804},	//IPC_CTRL_39
+	{0x4298, 0x00000503},	//IPC_CTRL_40
+	{0x429C, 0x00000240},	//IPC_CTRL_41
+	{0x42A0, 0x0006F2FB},	//IPC_CTRL_42
+	{0x42A4, 0x80004000},	//IPC_CTRL_43
+	{0x42A8, 0x80004000},	//IPC_CTRL_44
+	{0x42F0, 0x41919818},	//IPC_CTRL_20
+	{0x42F4, 0xCC409959},	//IPC_CTRL_21
+	{0x42F8, 0xFFC02018},	//IPC_CTRL_22
+	{0x42FC, 0xA09DA011},	//IPC_CTRL_23, 20141002, hmc_enable off
+	{0x4300, 0x776B0130},	//IPC_CTRL_24
+	{0x4304, 0x18301011},	//IPC_CTRL_25, 1209,sports jagging,0x28701010->0x18301011
+	{0x4308, 0x0A081019},	//IPC_CTRL_26
+	{0x430C, 0xE010E010},	//IPC_CTRL_27
+	{0x4310, 0x80008001},	//IPC_CTRL_28
+	{0x4314, 0xF0704018},	//IPC_CTRL_29
+	{0x4318, 0x8180C330},	//IPC_CTRL_30
+	{0x431C, 0x00000503},	//IPC_CTRL_31
+	{0x4320, 0x80004040},	//IPC_CTRL_32
+	{0x4324, 0x308020FF},	//IPC_CTRL_33
+};

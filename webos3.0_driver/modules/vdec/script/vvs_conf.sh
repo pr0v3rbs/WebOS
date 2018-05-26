@@ -1,0 +1,9 @@
+#!/bin/bash
+
+VVS_SERVER_IP=10.178.36.95
+NFS_SERVER=$VVS_SERVER_IP:/volume1/VVS
+SAMBA_ADDR=$VVS_SERVER_IP\\VVS
+NFS_DIR=/mnt/nfs/svr1
+FEEDDUMP_DIR=$NFS_DIR/feed_dump
+RESULT_DIR=$NFS_DIR/result_log
+REF_DIR=$NFS_DIR/ref_log

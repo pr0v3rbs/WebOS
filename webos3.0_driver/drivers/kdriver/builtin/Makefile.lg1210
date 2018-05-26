@@ -1,0 +1,5 @@
+#builtin kdriver for h15 
+obj-y	+= hma.o
+obj-y	+= logfunnel.o
+obj-y	+= kdrv_lg1210.o
+obj-y	+= vdec.o

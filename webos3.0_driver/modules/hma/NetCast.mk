@@ -1,0 +1,17 @@
+
+LOCAL_PATH := $(call my-dir)
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := hma
+
+LOCAL_SRC_FILES	+= libhma.c
+
+LOCAL_CFLAGS += -fPIC
+
+LOCAL_C_INCLUDES += $(LOCAL_PATH)
+
+LOCAL_EXPORT_C_INCLUDES := $(call all-c-headers-under, .)
+LOCAL_EXPORT_COMPONENT_NAME := hal-libs
+LOCAL_LIBRARY_VERSION := 0.1.0
+include $(BUILD_BASE_SHARED_LIBRARY)
+

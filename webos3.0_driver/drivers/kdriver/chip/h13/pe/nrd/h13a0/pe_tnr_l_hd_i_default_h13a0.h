@@ -1,0 +1,55 @@
+/*
+	SIC LABORATORY, LG ELECTRONICS INC., SEOUL, KOREA
+	Copyright(c) 2013 by LG Electronics Inc.
+
+	This program is free software; you can redistribute it and/or 
+	modify it under the terms of the GNU General Public License
+	version 2 as published by the Free Software Foundation.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of 
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+	GNU General Public License for more details.
+*/ 
+
+const PE_REG_PARAM_T tnr_hd_i_l_default_h13a0[] = 
+{
+	{0x0440, 0x49F7C143},
+	{0x0444, 0x020DF418},
+	{0x0448, 0x40903D10},
+	{0x044C, 0x20107870},
+	{0x0450, 0x208008C0},
+	{0x0454, 0x03FF0201},
+	{0x0458, 0x50200130},
+	{0x045C, 0x1E181109},
+	{0x0460, 0x20342E28},
+	{0x0464, 0x0060230B},
+	{0x0468, 0x4000A000},
+	{0x046C, 0x00404080},
+	{0x0470, 0xFF208038},
+	{0x0474, 0x80018000},
+	{0x0478, 0x80430078},
+	{0x047C, 0x03F50708},
+	{0x0480, 0x20100000},
+	{0x0484, 0x00000050},
+	{0x0488, 0x20204130},
+	{0x049C, 0x20200000},
+	{0x04A0, 0x80804040},
+	{0x04A4, 0x20200000},
+	{0x04A8, 0x80804040},
+	{0x04AC, 0x20202040},
+	{0x04B0, 0x914040C0},
+	{0x04B4, 0xFF308080},
+	{0x04B8, 0xFF20F620},
+	{0x04BC, 0xC0806000},
+	{0x04C0, 0x050C1449},
+	{0x04C4, 0x09CA3F21},
+	{0x04C8, 0x2B530000},
+	{0x04CC, 0x008A5E07},
+	{0x04E0, 0x00101010},
+	{0x04E4, 0x00E87AE8},
+	{0x04E8, 0x73E820E8},
+	{0x04EC, 0x13E806E8},
+	{0x04F8, 0x004020B0},
+	{0x04FC, 0x10FF0100}
+};

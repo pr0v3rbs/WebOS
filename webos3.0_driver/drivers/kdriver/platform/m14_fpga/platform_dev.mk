@@ -1,0 +1,42 @@
+#-----------------------------------------------------------------------------------------
+# arch_dev.mk describles the default device description
+#-----------------------------------------------------------------------------------------
+include $(KDRV_TOP_DIR)/../chip/m14/os/arch_dev.mk
+
+
+INCLUDE_KDRV_SAMPLE		:= NO
+INCLUDE_KDRV_AAD		:= NO
+INCLUDE_KDRV_AUDIO		:= NO
+INCLUDE_KDRV_AFE		:= NO
+INCLUDE_KDRV_CI			:= NO
+INCLUDE_KDRV_DE			:= YES
+INCLUDE_KDRV_DEMOD		:= NO
+INCLUDE_KDRV_DENC		:= NO
+INCLUDE_KDRV_FBDEV		:= YES
+INCLUDE_KDRV_GFX		:= YES
+INCLUDE_KDRV_GPU		:= YES
+INCLUDE_KDRV_GPIO		:= YES
+INCLUDE_KDRV_HDMI		:= NO
+INCLUDE_KDRV_I2C		:= YES
+INCLUDE_KDRV_SPI		:= NO
+INCLUDE_KDRV_PE			:= YES
+INCLUDE_KDRV_PVR		:= YES
+INCLUDE_KDRV_SDEC		:= YES
+INCLUDE_KDRV_VBI		:= NO
+INCLUDE_KDRV_VDEC		:= YES
+INCLUDE_KDRV_VENC		:= YES
+INCLUDE_KDRV_PNG		:= NO
+INCLUDE_KDRV_SE			:= NO
+INCLUDE_KDRV_SYS		:= YES
+INCLUDE_KDRV_SCI		:= NO
+INCLUDE_KDRV_CLK		:= NO
+INCLUDE_KDRV_MONITOR	:= NO
+INCLUDE_KDRV_MJPEG		:= NO
+INCLUDE_KDRV_APR		:= NO
+INCLUDE_KDRV_MEMPROT	:= NO
+INCLUDE_GPU_MALI		:= NO
+
+INCLUDE_KDRV_BE			:= YES
+INCLUDE_KDRV_LGBUS		:= NO
+INCLUDE_KDRV_OVI		:= YES
+INCLUDE_KDRV_LOGM		:= YES

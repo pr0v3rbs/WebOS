@@ -1,0 +1,9 @@
+libdir={INSTALL_DIR_LIB}
+includedir={INSTALL_DIR_INCLUDE}
+
+Name: hma
+Description: hardware memory allocator
+Version: 0.0
+URL: http://lge.com
+Libs: -L${libdir} -lhma
+Cflags: -I${includedir}/hma

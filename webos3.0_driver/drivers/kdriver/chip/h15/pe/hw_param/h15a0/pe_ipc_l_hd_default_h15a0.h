@@ -1,0 +1,63 @@
+/*
+	SIC LABORATORY, LG ELECTRONICS INC., SEOUL, KOREA
+	Copyright(c) 2013 by LG Electronics Inc.
+
+	This program is free software; you can redistribute it and/or
+	modify it under the terms of the GNU General Public License
+	version 2 as published by the Free Software Foundation.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU General Public License for more details.
+*/
+
+const PE_REG_PARAM_T ipc_l_hd_default_h15a0[] =
+{
+	/* nd ipc */
+	{0x4200, 0xF250ACA2},	//IPC_CTRL_00,1101 n1cc off
+	{0x4204, 0x80872084},	//IPC_CTRL_01,1209 st_iir_inc_gain 4->2, 1218 fmd_v_flt off
+	{0x4208, 0x1828700F},	//IPC_CTRL_02
+	{0x420C, 0xF5505038},	//IPC_CTRL_03
+	{0x4210, 0x800000FC},	//IPC_CTRL_04	// 2014.09.29
+	{0x4214, 0x10D02840},	//IPC_CTRL_05
+	{0x4218, 0x00800A77},	//IPC_CTRL_06	// 2014.09.29
+	{0x421C, 0xB0E002DF},	//IPC_CTRL_07	// 2014.09.29
+	{0x4220, 0xF0000000},	//IPC_CTRL_08
+	{0x4224, 0x00FF2814},	//IPC_CTRL_09
+	{0x4228, 0x25100404},	//IPC_CTRL_10
+	{0x422C, 0x16000540},	//IPC_CTRL_11
+	{0x4230, 0xFF041003},	//IPC_CTRL_12
+	{0x4234, 0x4FE01003},	//IPC_CTRL_13
+	{0x4238, 0x0750C019},	//IPC_CTRL_14
+	{0x423C, 0x6A380414},	//IPC_CTRL_15
+	{0x4240, 0x53703804},	//IPC_CTRL_16
+	{0x4244, 0x40505CE1},	//IPC_CTRL_17
+	{0x4248, 0xFF10FF08},	//IPC_CTRL_18
+	{0x424C, 0x00803040},	//IPC_CTRL_19
+	{0x4280, 0x300020FF},	//IPC_CTRL_34
+	{0x4284, 0x66410003},	//IPC_CTRL_35,0829,manual_md_en on,1203,div_pos 70->66
+	{0x4288, 0xFF2A1003},	//IPC_CTRL_36
+	{0x428C, 0x0750C061},	//IPC_CTRL_37
+	{0x4290, 0x6A380414},	//IPC_CTRL_38
+	{0x4294, 0x53703804},	//IPC_CTRL_39
+	{0x4298, 0x00000503},	//IPC_CTRL_40
+	{0x429C, 0x00003438},	//IPC_CTRL_41
+	{0x42A0, 0x000DF0FF},	//IPC_CTRL_42
+	{0x42A4, 0x80004000},	//IPC_CTRL_43, 20141008, n1 blend gain 0
+	{0x42A8, 0x80004000},	//IPC_CTRL_44, 20141008, n1 blend gain 0
+	{0x42F0, 0x41919818},	//IPC_CTRL_20
+	{0x42F4, 0xCC409959},	//IPC_CTRL_21
+	{0x42F8, 0xFFC02018},	//IPC_CTRL_22
+	{0x42FC, 0x707A7011},	//IPC_CTRL_23, 1218 hmc_expend 5->2
+	{0x4300, 0x776A0130},	//IPC_CTRL_24
+	{0x4304, 0x20301010},	//IPC_CTRL_25
+	{0x4308, 0x0A081019},	//IPC_CTRL_26
+	{0x430C, 0xD820D820},	//IPC_CTRL_27
+	{0x4310, 0x80008001},	//IPC_CTRL_28
+	{0x4314, 0x10004018},	//IPC_CTRL_29
+	{0x4318, 0x71300730},	//IPC_CTRL_30
+	{0x431C, 0x00000503},	//IPC_CTRL_31
+	{0x4320, 0x40003040},	//IPC_CTRL_32
+	{0x4324, 0x208014C0},	//IPC_CTRL_33
+};

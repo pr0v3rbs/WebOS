@@ -1,0 +1,39 @@
+
+
+common -- common contains the basic and default platform configuration for all platform families.
+
+	common
+
+columbus family -- "columbus" is linux-based private test platform in SIC Lab.
+
+	h13_columbus
+	h13_columbus_udtv
+	h14_columbus
+	h14_columbus_udtv
+	m14_columbus
+	h15_columbus
+	h15_columbus_udtv
+
+apricot family -- "apricot" is android-based private test platform in SIC Lab.
+
+	h13_apricot
+	m14_apricot
+	h14_apricot
+
+NC/WebOS family -- "nc" is linux-based official TV platform in HE Lab.
+
+	h13_nc4
+	h13_nc4_udtv
+	h14_nc5
+	m14_nc5
+
+googletv family -- "googletv" is android-based official TV platform in HE Lab.
+
+	m14_googletv
+	h14_googletv
+
+ETC -- tomporary or speical test purpose only.
+
+	h14_fpga
+	m14_fpga
+	h15_fpga

@@ -1,0 +1,139 @@
+# SIC LABORATORY, LG ELECTRONICS INC., SEOUL, KOREA
+# Copyright(c) 2013 by LG Electronics Inc.
+
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# version 2 as published by the Free Software Foundation.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+
+#   ---------------------------------------------------------------------------#
+#                                                                              #
+#   FILE NAME   :   makefile                                                   #
+#   VERSION     :   1.0                                                        #
+#   AUTHOR      :   raxis@lge.com                                              #
+#   DATE        :   2010/11/17                                                 #
+#   DESCRIPTION :   Makefile for building LG1150 kernel driver                 #
+#******************************************************************************#
+
+KERNEL_NAME := m14-kernel
+PLATFORM_CHIP := lg1311
+KDRV_PLATFORM_CFG := m14_googletv
+PLATFORM_CHIP_REV := A0
+
+export KERNEL_NAME PLATFORM_CHIP KDRV_PLATFORM_CFG PLATFORM_CHIP_REV
+
+ifeq ($(V),)
+Q ?= @
+endif
+
+#==============================================================================
+#
+#	BUILD FLAGS
+#
+#==============================================================================
+# if KDRV_GLOBAL_LINK is YES, the big one kernel module is created.
+# if NO, all modules creates its own kernel module.
+# default value is YES
+KDRV_GLOBAL_LINK	?= YES
+
+# if you want to test a power management, set KDRV_CONFIG_PM to YES
+# default value is NO
+KDRV_CONFIG_PM		?= YES
+
+# enable debug feature
+DEBUG			?= y
+
+SIC_LAB_BOARD		?= NO
+
+export KDRV_GLOBAL_LINK KDRV_CONFIG_PM DEBUG
+
+#==============================================================================
+#
+#	KERNEL MODULE
+#
+#==============================================================================
+KDRV_TOP_DIR		?= $(shell pwd)
+KDRV_BUILD_DIR		:= $(KDRV_TOP_DIR)/build
+KERNEL_DIR			:= $(ANDROID_BUILD_TOP)/$(KERNEL_NAME)
+KDRV_MODULE_BUILD 	?= YES
+
+# export core environment variable for each module Makefile
+export KDRV_TOP_DIR OUT_DIR KDRV_OUT_DIR TFTP_DIR KERNEL_DIR KERNEL_NAME MODFLAGS
+export KDRV_MODULE_BUILD
+
+include $(KDRV_TOP_DIR)/modules.mk
+
+export INCLUDE_L8_CHIP_KDRV
+export INCLUDE_L9_CHIP_KDRV
+export INCLUDE_H13_CHIP_KDRV
+
+#------------------------------------------------------------------------------
+# default target
+#------------------------------------------------------------------------------
+all : build_kdriver
+	# KDRIVER BUILD DONE...
+
+clean : clean_kdriver
+	# KDRIVER CLEAN DONE...
+
+include $(addprefix $(KDRV_TOP_DIR)/,$(addsuffix /Makefile,$(BASE_MODULE)))
+
+#
+# raxis.lim (2010/11/17)
+# if KDRV_MODULE_BUILD is defined, we will make kdrv_lg1150.ko regardless of kernel configuration
+# kDRV_MODULE_BUILD is defined at build/Makefile
+#
+ifeq ($(KDRV_MODULE_BUILD), YES)
+CONFIG_LG_BUILTIN_KDRIVER := m
+endif
+
+ccflags-y += -D__linux__ -D__ANDROID__ -fno-pic
+subdir-ccflags-y    += $(ccflags-y)
+
+obj-$(CONFIG_LG_BUILTIN_KDRIVER)	+= kdrv_$(PLATFORM_CHIP).o
+kdrv_$(PLATFORM_CHIP)-objs 			:= $(KDRV_MODULE_OBJS)
+
+obj-y   += vdec/
+obj-y   += vdec_cnm/
+obj-y	+= hma/
+#obj-y	+= logfunnel/
+
+
+build_kdriver :
+	$(Q)ln -sf ../../../modules/vdec
+	$(Q)ln -sf ../../../modules/vdec_cnm
+	$(Q)$(MAKE) -C $(KERNEL_DIR) M=$(KDRV_TOP_DIR) modules
+	$(Q)$(MAKE) -C $(KERNEL_DIR) M=$(KDRV_TOP_DIR) modules_install INSTALL_MOD_PATH=$(KDRV_TOP_DIR)/target
+	$(Q)find ${KDRV_TOP_DIR}/target -name \*.ko -print0 | xargs -0 cp -t ${KDRV_BUILD_DIR}
+	$(Q)for ko in $(KDRV_BUILD_DIR)/*.ko; do $(CROSS_COMPILE)strip -d $$ko; done;
+	$(Q)echo "# Copy to prebuilt ($(ANDROID_BUILD_TOP)/vendor/lge/forte/prebuilt/kernel/modules/)"
+	$(Q)for ko in $(KDRV_BUILD_DIR)/*.ko; do cp $$ko $(ANDROID_BUILD_TOP)/vendor/lge/forte/prebuilt/kernel/modules/; done;
+	$(Q)echo "# Copy to out ($(ANDROID_PRODUCT_OUT)/system/vendor/lib/modules/)"
+	$(Q)for ko in $(KDRV_BUILD_DIR)/*.ko; do cp $$ko $(ANDROID_PRODUCT_OUT)/system/vendor/lib/modules/; done;
+
+clean_kdriver :
+	$(Q)rm -rf $(KDRV_TOP_DIR)/target
+	$(Q)find $(KDRV_TOP_DIR)/.. -name "*.o" -exec rm {} \;
+	$(Q)-$(MAKE) -C $(KERNEL_DIR) M=$(KDRV_TOP_DIR) clean
+
+#------------------------------------------------------------------------------
+# copy kernel driver to predefined directory ( USE_CITRIX_SERVER=YES )
+#------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
+# TODO) check if kdriver is patched successfully or not
+#------------------------------------------------------------------------------
+
+
+#==============================================================================
+#
+#	KERNEL BUILTIN
+#
+#==============================================================================
+# the below paramter is used when kdriver is built into kernel
+# KDRV_TOP_DIR means the "top" directory for kdriver core file(s)
+#
+

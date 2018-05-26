@@ -1,0 +1,3 @@
+
+apps += fwloader
+

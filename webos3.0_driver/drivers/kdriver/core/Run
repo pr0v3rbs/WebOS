@@ -1,0 +1,14 @@
+#!/bin/sh
+export src=`pwd`
+mv Makefile Makefile_back
+ln -s GTVMakefile Makefile
+cd ../../../../../
+source build/env/apricot-m14a0.env
+cd os/lg115x_linux/drivers/kdriver/core
+if [ "$1" == "clean" ]; then
+	make clean
+else
+    make -j16
+fi
+rm -f Makefile
+mv -f Makefile_back Makefile
